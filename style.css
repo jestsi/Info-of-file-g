@@ -1,0 +1,49 @@
+
+
+.QPushButton {
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    width: 75%;
+    height: 16%;
+    font-size: 11px;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    margin: 5%;
+    outline: none;
+    border: 2px solid;
+    border-radius: 13px;
+    transition: 0.2s;
+
+}
+
+.QPushButton:hover { background: rgba(255,255,255,.2);}
+
+.QLineEdit {
+  width:100%;
+  resize: vertical;
+  padding:15px;
+  border: 2px solid #222121;
+  border-radius: 20px;
+  background-color: black;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  height:18px;
+  color: gray;
+}
+
+.QLabel {
+ padding:10px;
+  font-size: 12px;
+  text-shadow: -1px -1px #000, 0 1px 0 #444;
+  color: lightgray;
+  font-weight: 700;
+  transition: all 1s;
+}
+
+.QLabel:hover {
+  text-shadow: -1px -1px #000,0 1px 0 #444;
+  color: gray;
+}
+
+
