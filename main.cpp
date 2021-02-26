@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
     file.open(QFile::ReadOnly);
     app.setStyleSheet(file.readAll());
     Info_Of_File window;
-
+    
+    window.setStyleSheet("background-color: rgb(10,10,10);");
 //    window.setStyleSheet("background-color: #C2C2C2;");
     window.show();
 
