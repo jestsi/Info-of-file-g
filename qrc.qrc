@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>style.css</file>
         <file>Logo2.png</file>
+        <file>vk.png</file>
+        <file>discord.png</file>
+        <file>github.png</file>
+        <file>youtube.png</file>
     </qresource>
 </RCC>

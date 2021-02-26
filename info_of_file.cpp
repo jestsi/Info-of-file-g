@@ -6,6 +6,7 @@
 #include "QPixmap"
 #include "QPainter"
 #include "warning.h"
+#include "about.h"
 
 Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 {
@@ -15,6 +16,7 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 
     QPushButton *get_file_info_button = new QPushButton("Get info", this);
     QPushButton *set_text_size_button = new QPushButton("Confim", this);
+    QPushButton *about_open = new QPushButton("About", this);
 
     get_text_size = new QLineEdit(this);
 
@@ -35,14 +37,21 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     grid = new QGridLayout(this);
 
     grid->addWidget(get_file_info_button, 0, 1);
-    grid->addWidget(set_text_size_button, 0, 3);
+    grid->addWidget(set_text_size_button, 1, 2);
     grid->addWidget(get_text_size, 0, 2);
     grid->addWidget(get_file_name, 0, 0);
     grid->addWidget(info, 1, 0);
-    grid->addWidget(picture, 1, 4);
+    grid->addWidget(picture, 1, 3);
+    grid->addWidget(about_open, 0, 3);
+
+    about_open->setObjectName("about-class");
+
+    get_text_size->setAlignment(Qt::AlignTop);
+    get_file_name->setAlignment(Qt::AlignTop);
 
     connect(get_file_info_button, &QPushButton::clicked, this, &Info_Of_File::get_info_of_file);
     connect(set_text_size_button, &QPushButton::clicked, this, &Info_Of_File::set_text_font_size);
+    connect(about_open, &QPushButton::clicked, this, &Info_Of_File::open_about_window);
 }
 
 void Info_Of_File::get_info_of_file() {
@@ -68,6 +77,9 @@ void Info_Of_File::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Return) {
         get_info_of_file();
     }
+    if (event->key() == Qt::Key_F) {
+        set_text_font_size();
+    }
 }
 
 void Info_Of_File::set_text_font_size() {
@@ -79,6 +91,11 @@ void Info_Of_File::set_text_font_size() {
         warn->set_Text(test);
         warn->show();
     }
+}
+
+void Info_Of_File::open_about_window() {
+    About *about = new About();
+    about->show();
 }
 
 //void Info_Of_File::paintEvent(QPaintEvent *e) {

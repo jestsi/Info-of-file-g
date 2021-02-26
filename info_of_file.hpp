@@ -17,6 +17,7 @@ public:
 private slots:
     void get_info_of_file();
     void set_text_font_size();
+    void open_about_window();
 
 private:
     QFileInfo *m_file;

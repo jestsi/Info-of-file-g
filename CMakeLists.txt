@@ -35,6 +35,9 @@ set(PROJECT_SOURCES
         warning.h
         warning.ui
         qrc.qrc
+        about.cpp
+        about.h
+        about.ui
 
 )
 

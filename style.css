@@ -1,4 +1,19 @@
-
+.QCommandLinkButton {
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    width: 75%;
+    height: 16%;
+    font-size: 11px;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    margin: 5%;
+    outline: none;
+    border: 2px solid;
+    border-radius: 13px;
+    transition: 0.2s;
+}
 
 .QPushButton {
     display: inline-block;
@@ -46,4 +61,20 @@
   color: gray;
 }
 
+#about-class {
+display: inline-block;
+color: white;
+font-weight: 700;
+width: 30px;
+height: 30px;
+font-size: 11px;
+text-decoration: none;
+user-select: none;
+padding: .5em 2em;
+margin: 5%;
+outline: none;
+border: 2px solid;
+border-radius: 20px;
+transition: 0.2s;
 
+}
