@@ -8,7 +8,7 @@ About::About(QWidget *parent) :
     ui(new Ui::About)
 {
     ui->setupUi(this);
-    this.setStyleSheet("background-color: rgb(10,10,10);");
+    this->setStyleSheet("background-color: rgb(10,10,10);");
 }
 
 About::~About()
