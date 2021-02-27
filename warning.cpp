@@ -10,7 +10,7 @@ Warning::Warning(QWidget *parent) :
 
     ui->setupUi(this);
     this->setWindowTitle("Warning!!");
-    this->setStyleSheet("background-color: rgb(10,10,10);");
+    this->setStyleSheet("background-color: rgb(25,25,25);");
     this->setMaximumSize(this->size());
     this->setMinimumSize(this->size());
 
