@@ -18,15 +18,15 @@ public:
 private slots:
 
 
-    void on_pushButton_clicked();
+    void on_youtubeCPushButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_youtubeTPushButton_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_vkButton_clicked();
 
-    void on_pushButton_8_clicked();
+    void on_githubCButton_clicked();
 
-    void on_pushButton_7_clicked();
+    void on_githubTButton_clicked();
 
 private:
     Ui::About *ui;

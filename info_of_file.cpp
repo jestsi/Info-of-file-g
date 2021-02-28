@@ -8,21 +8,26 @@
 #include "warning.h"
 #include "about.h"
 
+
 Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 {
     get_file_name = new QLineEdit(this);
     info = new QLabel(this);
     size_text_pixels = "10";
+    settings = new Settings();
+
 
     QPushButton *get_file_info_button = new QPushButton("Get info", this);
     QPushButton *set_text_size_button = new QPushButton("Confim", this);
     QPushButton *about_open = new QPushButton("About", this);
+    QPushButton *open_settings_button = new QPushButton("Settings", this);
+
 
     get_text_size = new QLineEdit(this);
 
     get_text_size->setPlaceholderText("Enter width for font");
 
-    QPixmap myPixmap(":/Logo2.png");
+    QPixmap myPixmap(":/resource/img/Logo2.png");
     QLabel *picture = new QLabel(this);
     picture->setPixmap(myPixmap.scaled( picture->width()*3, picture->height()*3, Qt::KeepAspectRatio ));
     picture->setAlignment(Qt::AlignRight);
@@ -34,6 +39,8 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     get_file_name->setPlaceholderText("Enter file name");
     get_file_name->setTabletTracking(false);
 
+    settings->setStyleSheet(this->styleSheet());
+
     grid = new QGridLayout(this);
 
     grid->addWidget(get_file_info_button, 0, 1);
@@ -41,8 +48,9 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     grid->addWidget(get_text_size, 0, 2);
     grid->addWidget(get_file_name, 0, 0);
     grid->addWidget(info, 1, 0);
-    grid->addWidget(picture, 1, 3);
+    grid->addWidget(picture, 2, 3);
     grid->addWidget(about_open, 0, 3);
+    grid->addWidget(open_settings_button, 1, 3);
 
     about_open->setObjectName("about-class");
 
@@ -52,6 +60,7 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     connect(get_file_info_button, &QPushButton::clicked, this, &Info_Of_File::get_info_of_file);
     connect(set_text_size_button, &QPushButton::clicked, this, &Info_Of_File::set_text_font_size);
     connect(about_open, &QPushButton::clicked, this, &Info_Of_File::open_about_window);
+    connect(open_settings_button, &QPushButton::clicked, this, &Info_Of_File::open_setting_slot);
 }
 
 void Info_Of_File::get_info_of_file() {
@@ -80,6 +89,7 @@ void Info_Of_File::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_F) {
         set_text_font_size();
     }
+
 }
 
 void Info_Of_File::set_text_font_size() {
@@ -95,7 +105,17 @@ void Info_Of_File::set_text_font_size() {
 
 void Info_Of_File::open_about_window() {
     About *about = new About();
+
     about->show();
+}
+
+void Info_Of_File::open_setting_slot() {
+    QFile file(":/resource/styles/style_white_theme.css");
+    file.open(QFile::ReadOnly);
+//    settings->setStyleSheet(file.readAll());
+//    settings->setStyleSheet("background: rgb(230, 230, 230);");
+
+    settings->show();
 }
 
 //void Info_Of_File::paintEvent(QPaintEvent *e) {

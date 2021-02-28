@@ -16,11 +16,11 @@
   <property name="windowTitle">
    <string>About</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="youtube_lbl">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
+     <x>-10</x>
+     <y>30</y>
      <width>71</width>
      <height>71</height>
     </rect>
@@ -29,13 +29,13 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qrc.qrc">:/youtube.png</pixmap>
+    <pixmap resource="qrc.qrc">:/resource/img/black_theme/youtube.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="youtubeCPushButton">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -48,7 +48,7 @@
     <string>Creator</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="youtubeTPushButton">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -61,26 +61,26 @@
     <string>Tester</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="vk_lbl">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>71</width>
-     <height>71</height>
+     <x>0</x>
+     <y>100</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qrc.qrc">:/vk.png</pixmap>
+    <pixmap resource="qrc.qrc">:/resource/img/black_theme/vk.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="pushButton">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -96,7 +96,7 @@
     <string>Tester</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="vkButton">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -109,45 +109,45 @@
     <string>Creator</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="discord_lbl">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>71</width>
-     <height>71</height>
+     <x>0</x>
+     <y>160</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qrc.qrc">:/discord.png</pixmap>
+    <pixmap resource="qrc.qrc">:/resource/img/black_theme/discord.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="github_lbl">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>200</y>
-     <width>71</width>
-     <height>71</height>
+     <x>0</x>
+     <y>220</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qrc.qrc">:/github.png</pixmap>
+    <pixmap resource="qrc.qrc">:/resource/img/black_theme/github.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="githubTButton">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -160,7 +160,7 @@
     <string>Tester</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_8">
+  <widget class="QPushButton" name="githubCButton">
    <property name="geometry">
     <rect>
      <x>90</x>

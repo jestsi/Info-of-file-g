@@ -1,10 +1,15 @@
 <RCC>
     <qresource prefix="/">
-        <file>style.css</file>
-        <file>Logo2.png</file>
-        <file>vk.png</file>
-        <file>discord.png</file>
-        <file>github.png</file>
-        <file>youtube.png</file>
+        <file>resource/img/black_theme/discord.png</file>
+        <file>resource/img/black_theme/github.png</file>
+        <file>resource/img/black_theme/vk.png</file>
+        <file>resource/img/black_theme/youtube.png</file>
+        <file>resource/img/Logo2.png</file>
+        <file>resource/styles/style_black_theme.css</file>
+        <file>resource/styles/style_white_theme.css</file>
+        <file>resource/img/white_theme/discord.png</file>
+        <file>resource/img/white_theme/github.png</file>
+        <file>resource/img/white_theme/vk.png</file>
+        <file>resource/img/white_theme/youtube.png</file>
     </qresource>
 </RCC>

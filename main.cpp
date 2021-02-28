@@ -4,16 +4,21 @@
 #include "QStyleFactory"
 #include "QFile"
 
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    QFile file(":/style.css");
-    file.open(QFile::ReadOnly);
-    app.setStyleSheet(file.readAll());
+
     Info_Of_File window;
-    
-    window.setStyleSheet("background-color: rgb(25,25,25);");
-//    window.setStyleSheet("background-color: #C2C2C2;");
+    // white
+//    QFile file(":/resource/styles/style_white_theme.css");
+    // black
+    QFile file(":/resource/styles/style_black_theme.css");
+    file.open(QFile::ReadOnly);
+
+    app.setStyleSheet(file.readAll());
+
+
     window.show();
 
     return app.exec();

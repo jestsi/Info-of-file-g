@@ -38,6 +38,9 @@ set(PROJECT_SOURCES
         about.cpp
         about.h
         about.ui
+        settings.cpp
+        settings.h
+        settings.ui
 
 )
 

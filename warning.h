@@ -2,6 +2,7 @@
 #define WARNING_H
 
 #include <QWidget>
+#include "QFile"
 
 namespace Ui {
 class Warning;
