@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Settings</class>
  <widget class="QWidget" name="Settings">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -9,6 +12,18 @@
     <width>467</width>
     <height>430</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>467</width>
+    <height>430</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>467</width>
+    <height>430</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>

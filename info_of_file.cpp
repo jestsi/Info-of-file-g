@@ -7,7 +7,7 @@
 #include "QPainter"
 #include "warning.h"
 #include "about.h"
-
+#include "QFileDialog"
 
 Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 {
@@ -17,15 +17,14 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     settings = new Settings();
 
 
-    QPushButton *get_file_info_button = new QPushButton("Get info", this);
-    QPushButton *set_text_size_button = new QPushButton("Confim", this);
-    QPushButton *about_open = new QPushButton("About", this);
-    QPushButton *open_settings_button = new QPushButton("Settings", this);
-
+    QPushButton *get_file_info_button = new QPushButton(tr( "Get info"), this);
+    QPushButton *set_text_size_button = new QPushButton(tr("Confim"), this);
+    QPushButton *about_open = new QPushButton(tr("About"), this);
+    QPushButton *open_settings_button = new QPushButton(tr("Settings"), this);
+    QPushButton *open_file_dialog = new QPushButton("...", this);
 
     get_text_size = new QLineEdit(this);
-
-    get_text_size->setPlaceholderText("Enter width for font");
+    get_text_size->setPlaceholderText(tr("Enter width for font"));
 
     QPixmap myPixmap(":/resource/img/Logo2.png");
     QLabel *picture = new QLabel(this);
@@ -36,24 +35,25 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     info->setAlignment(Qt::AlignTop);
     info->setStyleSheet("font-size: " + size_text_pixels + "px");
 
-    get_file_name->setPlaceholderText("Enter file name");
+    get_file_name->setPlaceholderText(tr("Enter file name"));
+
     get_file_name->setTabletTracking(false);
 
     settings->setStyleSheet(this->styleSheet());
 
     grid = new QGridLayout(this);
 
-    grid->addWidget(get_file_info_button, 0, 1);
+    open_file_dialog->setMaximumWidth(60);
+
+    grid->addWidget(get_file_info_button, 0, 2);
     grid->addWidget(set_text_size_button, 1, 2);
-    grid->addWidget(get_text_size, 0, 2);
+    grid->addWidget(get_text_size, 0, 3);
     grid->addWidget(get_file_name, 0, 0);
     grid->addWidget(info, 1, 0);
-    grid->addWidget(picture, 2, 3);
-    grid->addWidget(about_open, 0, 3);
-    grid->addWidget(open_settings_button, 1, 3);
-
-    about_open->setObjectName("about-class");
-
+    grid->addWidget(picture, 2, 4);
+    grid->addWidget(about_open, 0, 4);
+    grid->addWidget(open_settings_button, 1, 4);
+    grid->addWidget(open_file_dialog, 0, 1);
     get_text_size->setAlignment(Qt::AlignTop);
     get_file_name->setAlignment(Qt::AlignTop);
 
@@ -61,25 +61,29 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     connect(set_text_size_button, &QPushButton::clicked, this, &Info_Of_File::set_text_font_size);
     connect(about_open, &QPushButton::clicked, this, &Info_Of_File::open_about_window);
     connect(open_settings_button, &QPushButton::clicked, this, &Info_Of_File::open_setting_slot);
+    connect(open_file_dialog, &QPushButton::clicked, this, &Info_Of_File::open_file_dialog_slot);
+
 }
 
 void Info_Of_File::get_info_of_file() {
     const QString file_name = get_file_name->text();
     m_file = new QFileInfo(file_name);
-    info->setText("File name is - " + m_file->baseName() + '\n' +
+    m_file_m = new QFile(m_file->fileName());
+    info->setText("File name is - "       + m_file->baseName() + '\n' +
                   "File birth time is - " + m_file->birthTime().toString() + '\n' +
                   "File size in bytes is - " + QString::number(m_file->size()) + '\n' +
-                  "File suffix is - " + m_file->suffix() + '\n' +
-                  "File path - " + m_file->filePath() + '\n' +
+                  "File suffix is - "     + m_file->suffix() + '\n' +
+                  "File path - "          + m_file->filePath() + '\n' +
                   "File last modif is - " + m_file->lastModified().toString() + '\n' +
-                  "File last read is - " + m_file->lastRead().toString() + '\n' +
-                  "File directory - " + m_file->absoluteFilePath() + '\n' +
+                  "File last read is - "  + m_file->lastRead().toString() + '\n' +
+                  "File directory - "     + m_file->absoluteFilePath() + '\n' +
                   "File meta data change time - " + m_file->metadataChangeTime().toString() + '\n' +
-                  "File is root - " + QString::number( m_file->isRoot() ) + '\n' +
-                  "File is readable - " + QString::number( m_file->isReadable() ) + '\n' +
-                  "File is executable - " + QString::number ( m_file->isExecutable() ) + '\n' +
-                  "File is hidden -  - " + QString::number (m_file->isHidden()) + '\n' +
-                  "File is writable - " +  QString::number (m_file->isWritable()));
+                  "File is root - "       + ( m_file->isRoot() ? "True" : "False") + '\n' +
+                  "File is readable - "   + ( m_file->isReadable() ? "True" : "False" ) + '\n' +
+                  "File is executable - " + ( m_file->isExecutable() ? "True" : "False") + '\n' +
+                  "File is hidden - "     + ( m_file->isHidden() ? "True" : "False") + '\n' +
+                  "File is writable - "   + ( m_file->isWritable() ? "True" : "False"));
+
 }
 
 void Info_Of_File::keyPressEvent(QKeyEvent *event) {
@@ -93,7 +97,7 @@ void Info_Of_File::keyPressEvent(QKeyEvent *event) {
 }
 
 void Info_Of_File::set_text_font_size() {
-    if (get_text_size->text().toInt() <= 5000 && get_text_size->text().toInt() > 0)
+    if (get_text_size->text().toInt() <= 1000 && get_text_size->text().toInt() > 0)
         info->setStyleSheet("font-size: " + get_text_size->text() + "px;");
     else {
         Warning *warn = new Warning();
@@ -110,21 +114,13 @@ void Info_Of_File::open_about_window() {
 }
 
 void Info_Of_File::open_setting_slot() {
-    QFile file(":/resource/styles/style_white_theme.css");
-    file.open(QFile::ReadOnly);
-//    settings->setStyleSheet(file.readAll());
-//    settings->setStyleSheet("background: rgb(230, 230, 230);");
-
     settings->show();
 }
 
-//void Info_Of_File::paintEvent(QPaintEvent *e) {
+void Info_Of_File::open_file_dialog_slot () {
+    QFileDialog *dialog = new QFileDialog(this);
+    dialog->show();
 
-//    Q_UNUSED(e);
-
-//    QPainter qp(this);
-
-//    QPen pen(Qt::gray, 1, Qt::SolidLine);
-//    qp.setPen(pen);
-//    qp.drawLine(15, 80, 250, 80);
-//  }
+    get_file_name->setText( dialog->getOpenFileName() );
+    dialog->close();
+}

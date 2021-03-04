@@ -2,6 +2,7 @@
 #include "ui_about.h"
 #include "QUrl"
 #include "QDesktopServices"
+#include "QFile"
 
 About::About(QWidget *parent) :
     QWidget(parent),
@@ -9,6 +10,21 @@ About::About(QWidget *parent) :
 {
     ui->setupUi(this);
 //    this->setStyleSheet("background-color: rgb(25,25,25);");
+
+    QFile file(":/resource/styles/style_black_theme.css");
+    file.open(QFile::ReadOnly);
+
+    if (qApp->styleSheet() == file.readAll()) {
+        ui->youtube_lbl->setPixmap(QPixmap( ":/resource/img/white_theme/youtube.png"));
+        ui->discord_lbl->setPixmap(QPixmap( ":/resource/img/white_theme/discord.png"));
+        ui->github_lbl->setPixmap( QPixmap( ":/resource/img/white_theme/github.png"));
+        ui->vk_lbl->setPixmap(     QPixmap( ":/resource/img/white_theme/vk.png"));
+    } else {
+        ui->youtube_lbl->setPixmap(QPixmap( ":/resource/img/black_theme/youtube.png"));
+        ui->discord_lbl->setPixmap(QPixmap( ":/resource/img/black_theme/discord.png"));
+        ui->github_lbl->setPixmap( QPixmap( ":/resource/img/black_theme/github.png"));
+        ui->vk_lbl->setPixmap(     QPixmap( ":/resource/img/black_theme/vk.png"));
+    }
 }
 
 About::~About()

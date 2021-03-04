@@ -43,9 +43,7 @@ QLabel {
   transition: all 1s;
 }
 
-QLabel:hover {
-  text-shadow: -1px -1px #000,0 1px 0 #444;
-  color: gray;
+QLineEdit[text=\"\]{
+color: gray;
 }
-
 

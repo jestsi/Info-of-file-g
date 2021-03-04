@@ -6,7 +6,7 @@ Settings::Settings(QWidget *parent) :
     ui(new Ui::Settings)
 {
     ui->setupUi(this);
-
+    this->setWindowTitle("Settings");
 }
 
 Settings::~Settings()
@@ -19,9 +19,7 @@ void Settings::on_pushButton_clicked()
 //    Settings::theme_is_black = !theme_is_black;
     QFile file(":/resource/styles/style_white_theme.css");
     file.open(QFile::ReadOnly);
-//    this->setStyleSheet(file.readAll());
     qApp->setStyleSheet(file.readAll());
-//    this->setStyleSheet("background: rgb(230, 230, 230);");
 
 }
 

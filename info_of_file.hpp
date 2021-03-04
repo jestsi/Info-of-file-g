@@ -20,6 +20,7 @@ private slots:
     void set_text_font_size();
     void open_about_window();
     void open_setting_slot();
+    void open_file_dialog_slot();
 
 private:
     QFileInfo *m_file;
@@ -29,9 +30,9 @@ private:
     QString size_text_pixels;
     QLineEdit *get_text_size;
     Settings *settings;
+    QFile *m_file_m;
 protected:
     void keyPressEvent(QKeyEvent *event);
-//    void paintEvent(QPaintEvent *event);
 };
 
 #endif // INFO_OF_FILE_HPP
