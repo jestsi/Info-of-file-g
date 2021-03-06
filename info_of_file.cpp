@@ -52,13 +52,13 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     open_file_dialog->setMaximumWidth(60);
 
     grid->addWidget(get_file_info_button, 0, 2);
-    grid->addWidget(set_text_size_button, 1, 3);
+    grid->addWidget(set_text_size_button, 1, 3, Qt::AlignTop);
     grid->addWidget(get_text_size, 0, 3);
     grid->addWidget(get_file_name, 0, 0);
     grid->addWidget(info, 1, 0);
     grid->addWidget(picture, 2, 4);
     grid->addWidget(about_open, 0, 4);
-    grid->addWidget(open_settings_button, 1, 4);
+    grid->addWidget(open_settings_button, 1, 4, Qt::AlignTop);
     grid->addWidget(open_file_dialog, 0, 1);
 
     get_text_size->setAlignment(Qt::AlignTop);

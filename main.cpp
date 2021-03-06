@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     app.setApplicationName("Information file");
     app.setApplicationDisplayName("Information file");
 
-    QIcon icon_window(":/resource/img/logo2.png");
+    QIcon icon_window(":/resource/img/logo_window.png");
     icon_window.actualSize(QSize(110, 110));
     app.setWindowIcon(icon_window);
 
