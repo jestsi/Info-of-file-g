@@ -14,6 +14,9 @@ class Info_Of_File : public QWidget
     Q_OBJECT
 public:
     explicit Info_Of_File(QWidget *parent = nullptr);
+    friend Settings;
+
+
 
 private slots:
     void get_info_of_file();

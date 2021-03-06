@@ -28,6 +28,10 @@ private slots:
 
     void on_githubTButton_clicked();
 
+    void on_vkTButton_clicked();
+
+    void on_vkCButton_clicked();
+
 private:
     Ui::About *ui;
 };

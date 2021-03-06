@@ -9,21 +9,33 @@ About::About(QWidget *parent) :
     ui(new Ui::About)
 {
     ui->setupUi(this);
-//    this->setStyleSheet("background-color: rgb(25,25,25);");
-
     QFile file(":/resource/styles/style_black_theme.css");
     file.open(QFile::ReadOnly);
 
     if (qApp->styleSheet() == file.readAll()) {
-        ui->youtube_lbl->setPixmap(QPixmap( ":/resource/img/white_theme/youtube.png"));
-        ui->discord_lbl->setPixmap(QPixmap( ":/resource/img/white_theme/discord.png"));
-        ui->github_lbl->setPixmap( QPixmap( ":/resource/img/white_theme/github.png"));
-        ui->vk_lbl->setPixmap(     QPixmap( ":/resource/img/white_theme/vk.png"));
+        ui->githubCButton->setIcon(QIcon(":/resource/img/white_theme/github.png"));
+        ui->githubTButton->setIcon(QIcon(":/resource/img/white_theme/github.png"));
+
+        ui->vkCButton->setIcon(QIcon(":/resource/img/white_theme/vk.png"));
+        ui->vkTButton->setIcon(QIcon(":/resource/img/white_theme/vk.png"));
+
+        ui->youtubeCPushButton->setIcon(QIcon(":/resource/img/white_theme/youtube.png"));
+        ui->youtubeTPushButton->setIcon(QIcon(":/resource/img/white_theme/youtube.png"));
+
+        ui->Discord_icon->setPixmap(QPixmap(":/resource/img/white_theme/discord.png"));
+        ui->Discord_icon_2->setPixmap(QPixmap(":/resource/img/white_theme/discord.png"));
     } else {
-        ui->youtube_lbl->setPixmap(QPixmap( ":/resource/img/black_theme/youtube.png"));
-        ui->discord_lbl->setPixmap(QPixmap( ":/resource/img/black_theme/discord.png"));
-        ui->github_lbl->setPixmap( QPixmap( ":/resource/img/black_theme/github.png"));
-        ui->vk_lbl->setPixmap(     QPixmap( ":/resource/img/black_theme/vk.png"));
+        ui->githubCButton->setIcon(QIcon(":/resource/img/black_theme/github.png"));
+        ui->githubTButton->setIcon(QIcon(":/resource/img/black_theme/github.png"));
+
+        ui->vkCButton->setIcon(QIcon(":/resource/img/black_theme/vk.png"));
+        ui->vkTButton->setIcon(QIcon(":/resource/img/black_theme/vk.png"));
+
+        ui->youtubeCPushButton->setIcon(QIcon(":/resource/img/black_theme/youtube.png"));
+        ui->youtubeTPushButton->setIcon(QIcon(":/resource/img/black_theme/youtube.png"));
+
+        ui->Discord_icon->setPixmap(QPixmap(":/resource/img/black_theme/discord.png"));
+        ui->Discord_icon_2->setPixmap(QPixmap(":/resource/img/black_theme/discord.png"));
     }
 }
 
@@ -40,7 +52,7 @@ void About::on_youtubeCPushButton_clicked()
 
 void About::on_youtubeTPushButton_clicked()
 {
-     QDesktopServices::openUrl(QUrl("https://www.youtube.com/channel/UCl1HbvVCz_Aew-hk298SV1A", QUrl::TolerantMode));
+     QDesktopServices::openUrl(QUrl("https://www.youtube.com/channel/UCt7FU0J-ewnYppudD_oGI5Q", QUrl::TolerantMode));
 }
 
 void About::on_vkButton_clicked()
@@ -55,5 +67,16 @@ void About::on_githubCButton_clicked()
 
 void About::on_githubTButton_clicked()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/Mer4ant", QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("https://github.com/Apceniy", QUrl::TolerantMode));
+}
+
+void About::on_vkTButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://vk.com/redstoner2002", QUrl::TolerantMode));
+}
+
+
+void About::on_vkCButton_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://vk.com/nesryf", QUrl::TolerantMode));
 }

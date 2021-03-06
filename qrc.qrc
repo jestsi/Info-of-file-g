@@ -11,5 +11,6 @@
         <file>resource/img/white_theme/github.png</file>
         <file>resource/img/white_theme/vk.png</file>
         <file>resource/img/white_theme/youtube.png</file>
+        <file>resource/img/logo2.png</file>
     </qresource>
 </RCC>
