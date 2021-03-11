@@ -28,7 +28,7 @@ QLineEdit {
   padding:15px;
   border: 2px solid #222121;
   border-radius: 20px;
-  background-color: black;
+  background-color: rgb(25, 25, 25);
   box-shadow:4px 4px 10px rgba(0,0,0,0.06);
   height:18px;
   color: gray;
@@ -36,14 +36,14 @@ QLineEdit {
 
 QLabel {
   padding:10px;
-  font-size: 12px;
+/*  font-size: 12px;*/
   text-shadow: -1px -1px #000, 0 1px 0 #444;
   color: lightgray;
   font-weight: 700;
   transition: all 1s;
 }
 
-QLineEdit[text=\"\]{
+/*QLineEdit[text=\"\]{
 color: gray;
-}
+}*/
 

@@ -1,20 +1,22 @@
 #include "settings.h"
 #include "ui_settings.h"
 #include "warning.h"
+#include "QMainWindow"
 
-
-Settings::Settings(QWidget *parent) :
+Settings::Settings(QWidget *window ,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Settings)
 {
     ui->setupUi(this);
     this->setWindowTitle("Settings");
 
+    m_window = window;
 
 }
 
 Settings::~Settings()
 {
+    delete m_window;
     delete ui;
 }
 
@@ -39,5 +41,9 @@ void Settings::on_pushButton_2_clicked()
 
 void Settings::on_confirm_button_clicked()
 {
-    qApp->setStyleSheet(qApp->styleSheet() + "font-size: " + ui->lineEdit_font_size->text() + "px;");
+
+
+    fontSize(ui->lineEdit_font_size->text().toInt());
+
+    this->close();
 }

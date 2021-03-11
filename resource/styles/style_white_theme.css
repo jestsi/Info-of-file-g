@@ -36,15 +36,13 @@ QLineEdit {
 
 QLabel {
  padding:10px;
-  font-size: 12px;
+  /*font-size: 12px;*/
   text-shadow: -1px -1px #000, 0 1px 0 #444;
   color: rgb(40, 40, 40);
   font-weight: 700;
   transition: all 1s;
 }
 
-QLineEdit[text=\"\]{
-color: black;
-}
+/*QLineEdit[text=\"\] {color: red;}*/
 
 

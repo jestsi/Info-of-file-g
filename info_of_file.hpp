@@ -14,16 +14,17 @@ class Info_Of_File : public QWidget
     Q_OBJECT
 public:
     explicit Info_Of_File(QWidget *parent = nullptr);
+    void set_font_size(qint32 value);
     friend Settings;
 
 
 
 private slots:
     void get_info_of_file();
-    void set_text_font_size();
     void open_about_window();
     void open_setting_slot();
     void open_file_dialog_slot();
+
 
 private:
     QFileInfo *m_file;
@@ -31,7 +32,6 @@ private:
     QLineEdit *get_file_name;
     QLabel *info;
     QString size_text_pixels;
-    QLineEdit *get_text_size;
     Settings *settings;
     QFile *m_file_m;
 protected:
