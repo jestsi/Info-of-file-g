@@ -12,5 +12,6 @@
         <file>resource/img/white_theme/vk.png</file>
         <file>resource/img/white_theme/youtube.png</file>
         <file>resource/img/logo_window.png</file>
+        <file>resource/styles/style_purple_theme.css</file>
     </qresource>
 </RCC>

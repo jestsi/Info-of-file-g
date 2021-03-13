@@ -16,7 +16,6 @@ class Settings : public QWidget
 public:
     explicit Settings(QWidget *window, QWidget *parent = nullptr);
     ~Settings();
-    static bool theme_is_black;
 private slots:
     void on_pushButton_clicked();
 
@@ -25,6 +24,8 @@ private slots:
     void on_confirm_button_clicked();
 
 
+
+    void on_pushButton_3_clicked();
 
 signals:
     // Отправляем размер шрифта (например, при изменении, или по нажатию кнопки)

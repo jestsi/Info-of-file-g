@@ -14,7 +14,6 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 {
     get_file_name = new QLineEdit(this);
     info = new QLabel(this);
-    size_text_pixels = "10";
     settings = new Settings(this);
 
     QFont win_font = info->font();
@@ -46,7 +45,6 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     get_file_name->setPlaceholderText(tr("Enter file name"));
     get_file_name->setTabletTracking(false);
 
-//    settings->setStyleSheet(this->styleSheet());
 
     grid = new QGridLayout(this);
 

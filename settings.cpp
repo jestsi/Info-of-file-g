@@ -47,3 +47,12 @@ void Settings::on_confirm_button_clicked()
 
     this->close();
 }
+
+void Settings::on_pushButton_3_clicked()
+{
+    QFile file(":/resource/styles/style_purple_theme.css");
+    file.open(QFile::ReadOnly);
+    QString test = file.readAll();
+
+    qApp->setStyleSheet(test);
+}
