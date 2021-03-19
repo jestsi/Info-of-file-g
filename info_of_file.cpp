@@ -9,6 +9,7 @@
 #include "about.h"
 #include "QFileDialog"
 #include "QMessageBox"
+#include "file_actions_window.h"
 
 Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 {
@@ -26,12 +27,13 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     QPushButton *about_open = new QPushButton(tr("About"), this);
     QPushButton *open_settings_button = new QPushButton(tr("Settings"), this);
     QPushButton *open_file_dialog = new QPushButton("...", this);
-
+    QPushButton *actions_of_file_button = new QPushButton("File actions", this);
 
     get_file_info_button->setCursor(Qt::PointingHandCursor);
     about_open->setCursor(Qt::PointingHandCursor);
     open_settings_button->setCursor(Qt::PointingHandCursor);
     open_file_dialog->setCursor(Qt::PointingHandCursor);
+    actions_of_file_button->setCursor(Qt::PointingHandCursor);
 
 
     QPixmap myPixmap(":/resource/img/Logo2.png");
@@ -58,12 +60,14 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 
     grid->addWidget(get_file_name, 0, 0);
     grid->addWidget(info, 1, 0);
-    grid->addWidget(picture, 2, 4);
+    grid->addWidget(picture, 3, 4);
     grid->addWidget(about_open, 0, 4);
     grid->addWidget(open_settings_button, 1, 4, Qt::AlignTop);
+    grid->addWidget(actions_of_file_button, 1, 2, Qt::AlignTop);
     grid->addWidget(open_file_dialog, 0, 1);
 
     get_file_name->setAlignment(Qt::AlignTop);
+
 
     connect(settings, &Settings::fontSize, this, &Info_Of_File::set_font_size);
 
@@ -72,7 +76,7 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     connect(about_open, SIGNAL(clicked()), this, SLOT(open_about_window()));
     connect(open_settings_button, SIGNAL(clicked()), this, SLOT(open_setting_slot()));
     connect(open_file_dialog, SIGNAL(clicked()), this, SLOT(open_file_dialog_slot()));
-
+    connect(actions_of_file_button, SIGNAL(clicked()), this, SLOT(open_file_action_slot()));
 }
 
 void Info_Of_File::get_info_of_file() {
@@ -140,3 +144,8 @@ void Info_Of_File::set_font_size(qint32 value) {
     info->setFont(font);
 }
 
+void Info_Of_File::open_file_action_slot() {
+    QString temp = get_file_name->text();
+    File_Actions_window *window = new File_Actions_window(temp, nullptr);
+    window->show();
+}

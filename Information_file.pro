@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    file_actions_window.cpp \
     main.cpp \
     about.cpp \
     info_of_file.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     about.h \
+    file_actions_window.h \
     info_of_file.hpp \
     warning.h \
     settings.h
@@ -24,6 +26,7 @@ HEADERS += \
 RESOURCES += qrc.qrc
 
 FORMS += \
+   file_actions_window.ui \
    warning.ui \
    settings.ui \
    about.ui

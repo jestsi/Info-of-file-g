@@ -45,4 +45,8 @@ QLabel {
 
 /*QLineEdit[text=\"\] {color: red;}*/
 
+QGroupBox {
+color: black;
+
+}
 

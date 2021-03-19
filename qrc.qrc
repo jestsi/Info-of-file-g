@@ -13,5 +13,7 @@
         <file>resource/img/white_theme/youtube.png</file>
         <file>resource/img/logo_window.png</file>
         <file>resource/styles/style_purple_theme.css</file>
+        <file>resource/img/black_theme/trash-512.png</file>
+        <file>resource/img/white_theme/trash-512.png</file>
     </qresource>
 </RCC>

@@ -24,7 +24,7 @@ private slots:
     void open_about_window();
     void open_setting_slot();
     void open_file_dialog_slot();
-
+    void open_file_action_slot();
 
 private:
     QFileInfo *m_file;
