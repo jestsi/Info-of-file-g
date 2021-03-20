@@ -29,16 +29,19 @@ File_Actions_window::~File_Actions_window()
 
 void File_Actions_window::on_pushButton_clicked()
 {
-    m_file_m->open(QIODevice::ReadWrite);
+//    m_file_m->open(QIODevice::ReadWrite);
+//    qDebug() << m_file->path() << Qt::endl;
+//    qDebug() << m_file->filePath();
+//    QFile::rename(m_file->filePath(), (m_file->path() +
+//#ifdef Q_OS_LINUX
+//                  "/"
+//#else
+//                  "/"
+//#endif
+//                  + ui->lineEdit->text()));
 
-    QFile::rename(m_file->filePath(), m_file->path() +
-#ifdef Q_OS_LINUX
-                  "/"
-#else
-                  "\\"
-#endif
-                  + ui->lineEdit->text());
 
+    m_file_m->rename(m_file->path() + '/' + ui->lineEdit->text());
 
     m_file_m->close();
 
@@ -59,8 +62,24 @@ void File_Actions_window::on_pushButton_3_clicked()
 
 void File_Actions_window::on_pushButton_4_clicked()
 {
-    m_file_m->open(QIODevice::Append | QIODevice::Text);
-    m_file_m->setFileTime(QDateTime(ui->dateTimeEdit->dateTime()), QFileDevice::FileAccessTime);
+    m_file_m->open(QIODevice::Append | QIODevice::Text | QIODevice::ReadWrite);
+    m_file_m->setFileTime(QDateTime(ui->dateTimeEdit_2->dateTime()), QFileDevice::FileAccessTime);
+
+    m_file_m->close();
+}
+
+void File_Actions_window::on_pushButton_5_clicked()
+{
+    m_file_m->open(QIODevice::Append | QIODevice::Text | QIODevice::ReadWrite);
+    m_file_m->setFileTime(QDateTime(ui->dateTimeEdit_3->dateTime()), QFileDevice::FileBirthTime);
+
+    m_file_m->close();
+}
+
+void File_Actions_window::on_pushButton_6_clicked()
+{
+    m_file_m->open(QIODevice::Append | QIODevice::Text | QIODevice::ReadWrite);
+    m_file_m->setFileTime(QDateTime(ui->dateTimeEdit_4->dateTime()), QFileDevice::FileMetadataChangeTime);
 
     m_file_m->close();
 }

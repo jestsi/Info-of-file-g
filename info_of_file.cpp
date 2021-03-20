@@ -145,7 +145,15 @@ void Info_Of_File::set_font_size(qint32 value) {
 }
 
 void Info_Of_File::open_file_action_slot() {
+
     QString temp = get_file_name->text();
-    File_Actions_window *window = new File_Actions_window(temp, nullptr);
-    window->show();
+    if (temp.size() > 0) {
+        File_Actions_window *window = new File_Actions_window(temp, nullptr);
+        window->show();
+    } else {
+        Warning *warn = new Warning();
+        QString temp_warn = "Select file for edit file!!";
+        warn->set_Text(temp_warn);
+        warn->show();
+    }
 }
