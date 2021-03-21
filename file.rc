@@ -1,4 +1,4 @@
-IDI_ICON1       ICON    DISCARDABLE   ":/resource/img/logo_window_ico.ico"
+IDI_ICON1 ICON DISCARDABLE   "resource/img/logo_window_ico.ico"
 
 #include <windows.h>
 #include "version.h"
