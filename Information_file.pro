@@ -4,6 +4,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
+win32 {
+    RC_FILE += file.rc
+    OTHER_FILES += file.rc version.h
+}
+
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -18,8 +23,10 @@ SOURCES += \
 
 HEADERS += \
     about.h \
+    file.rc \
     file_actions_window.h \
     info_of_file.hpp \
+    version.h \
     warning.h \
     settings.h
 
@@ -35,3 +42,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    resource/img/logo_window_ico.ico

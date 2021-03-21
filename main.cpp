@@ -23,8 +23,6 @@ int main(int argc, char *argv[])
     icon_window.actualSize(QSize(110, 110));
     app.setWindowIcon(icon_window);
 
-
-
     window.show();
 
     return app.exec();

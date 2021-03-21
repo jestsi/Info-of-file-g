@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>File_Actions_window</class>
  <widget class="QWidget" name="File_Actions_window">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
