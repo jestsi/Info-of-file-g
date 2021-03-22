@@ -77,6 +77,18 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
     connect(open_settings_button, SIGNAL(clicked()), this, SLOT(open_setting_slot()));
     connect(open_file_dialog, SIGNAL(clicked()), this, SLOT(open_file_dialog_slot()));
     connect(actions_of_file_button, SIGNAL(clicked()), this, SLOT(open_file_action_slot()));
+
+
+}
+
+Info_Of_File::~Info_Of_File() {
+    delete get_file_name;
+    delete info;
+    delete settings;
+    delete grid;
+    delete m_file;
+    delete m_file_m;
+
 }
 
 void Info_Of_File::get_info_of_file() {
@@ -114,8 +126,6 @@ void Info_Of_File::keyPressEvent(QKeyEvent *event) {
 
 }
 
-
-
 void Info_Of_File::open_about_window() {
     About *about = new About();
 
@@ -127,10 +137,10 @@ void Info_Of_File::open_setting_slot() {
 }
 
 void Info_Of_File::open_file_dialog_slot () {
-    QFileDialog *dialog = new QFileDialog(this);
-    dialog->setObjectName("file_selector");
+    QFileDialog dialog(nullptr);
+    dialog.setObjectName("file_selector");
 
-    QString full_dir = QString::fromStdString( dialog->getOpenFileName().toStdString());
+    QString full_dir = QString::fromStdString( dialog.getOpenFileName().toStdString());
     get_file_name->setText(full_dir);
 
 
@@ -151,9 +161,6 @@ void Info_Of_File::open_file_action_slot() {
         File_Actions_window *window = new File_Actions_window(temp, nullptr);
         window->show();
     } else {
-        Warning *warn = new Warning();
-        QString temp_warn = "Select file for edit file!!";
-        warn->set_Text(temp_warn);
-        warn->show();
+        QMessageBox::warning(nullptr, "Warning!", "Select file for edit file!!");
     }
 }

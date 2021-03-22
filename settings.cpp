@@ -44,7 +44,7 @@ void Settings::on_confirm_button_clicked()
 {
     int size_font_i = ui->lineEdit_font_size->text().toInt();
     if (size_font_i > 3 && size_font_i < 32) {
-        fontSize(size_font_i);
+        emit fontSize(size_font_i);
         this->close();
     }
     else {

@@ -14,6 +14,7 @@ class Info_Of_File : public QWidget
     Q_OBJECT
 public:
     explicit Info_Of_File(QWidget *parent = nullptr);
+    ~Info_Of_File();
     void set_font_size(qint32 value);
     friend Settings;
 
@@ -36,6 +37,7 @@ private:
     QFile *m_file_m;
 protected:
     void keyPressEvent(QKeyEvent *event);
+
 };
 
 #endif // INFO_OF_FILE_HPP

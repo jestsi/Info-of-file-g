@@ -1,7 +1,6 @@
 #include "info_of_file.hpp"
 
 #include <QApplication>
-#include "QStyleFactory"
 #include "QFile"
 #include "QIcon"
 
@@ -22,6 +21,8 @@ int main(int argc, char *argv[])
     QIcon icon_window(":/resource/img/logo_window.png");
     icon_window.actualSize(QSize(110, 110));
     app.setWindowIcon(icon_window);
+
+
 
     window.show();
 

@@ -2,6 +2,7 @@
 #include "ui_file_actions_window.h"
 #include "QDebug"
 #include "QDir"
+#include "QScrollArea"
 
 File_Actions_window::File_Actions_window(QString &path_to_file, QWidget *parent) :
     QWidget(parent),
@@ -19,11 +20,20 @@ File_Actions_window::File_Actions_window(QString &path_to_file, QWidget *parent)
     } else {
         ui->pushButton_2->setIcon(QIcon(":/resource/img/white_theme/trash-512.png"));
     }
+
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setWidget(ui->widget);
+    scrollArea->setMinimumSize(520, 300);
+    scrollArea->setWindowTitle("File actions");
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    scrollArea->show();
+
 }
 
 File_Actions_window::~File_Actions_window()
 {
-
+    delete m_file;
+    delete m_file_m;
     delete ui;
 }
 
@@ -48,10 +58,7 @@ void File_Actions_window::on_pushButton_clicked()
 
 }
 
-void File_Actions_window::on_pushButton_2_clicked()
-{
-    m_file_m->moveToTrash();
-}
+void File_Actions_window::on_pushButton_2_clicked() { m_file_m->moveToTrash(); }
 
 void File_Actions_window::on_pushButton_3_clicked()
 {
@@ -82,4 +89,9 @@ void File_Actions_window::on_pushButton_6_clicked()
     m_file_m->setFileTime(QDateTime(ui->dateTimeEdit_4->dateTime()), QFileDevice::FileMetadataChangeTime);
 
     m_file_m->close();
+}
+
+void File_Actions_window::on_pushButton_7_clicked()
+{
+    m_file_m->resize(ui->spinBox->text().toInt());
 }

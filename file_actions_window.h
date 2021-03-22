@@ -30,6 +30,8 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_pushButton_7_clicked();
+
 private:
     Ui::File_Actions_window *ui;
     QFile *m_file_m;
