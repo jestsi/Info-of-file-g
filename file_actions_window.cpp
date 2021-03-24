@@ -26,6 +26,7 @@ File_Actions_window::File_Actions_window(QString &path_to_file, QWidget *parent)
     scrollArea->setMinimumSize(520, 300);
     scrollArea->setWindowTitle("File actions");
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    scrollArea->setFrameStyle(0);
     scrollArea->show();
 
 }

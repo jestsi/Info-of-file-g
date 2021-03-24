@@ -63,11 +63,26 @@
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-3</x>
      <y>10</y>
      <width>501</width>
      <height>381</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: ;</string>
    </property>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
@@ -307,6 +322,9 @@
      </item>
      <item row="0" column="0">
       <widget class="QSpinBox" name="spinBox">
+       <property name="frame">
+        <bool>false</bool>
+       </property>
        <property name="buttonSymbols">
         <enum>QAbstractSpinBox::NoButtons</enum>
        </property>
