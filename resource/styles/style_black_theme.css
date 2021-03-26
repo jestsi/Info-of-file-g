@@ -54,7 +54,7 @@ color: white;
 }
 
 QScrollBar:vertical  {
-
+border: 1px solid #252525;
 background:white;
 width:10px;
 margin: 0px 0px 0px 0px;

@@ -22,7 +22,7 @@ QPushButton {
 
 QPushButton:hover { background: rgba(20,20,20,.2);}
 
-QLineEdit {
+QLineEdit, QSpinBox {
   width:100%;
   resize: vertical;
   padding:15px;
@@ -49,8 +49,43 @@ QGroupBox {
 color: black;
 }
 
+Line {
+color: #252525;
+background-color: #252525;
+}
+
 QDateTimeEdit {
-    border: 2px solid;
+    border: 2px solid black;
     border-radius: 7px;
     color: black;
+}
+
+QScrollBar:vertical  {
+
+background:rgb(230, 230, 230);
+width:10px;
+margin: 0px 0px 0px 0px;
+box-shadow:  -1px -1px #000, 0 1px 0 #444;
+
+}
+QScrollBar::handle:vertical {
+border: 1px solid #252525;
+border-radius: 4px;
+    background: rgb(25,25,25);
+    min-height: 0px;
+    box-shadow:  -1px -1px #000, 0 1px 0 #444;
+}
+QScrollBar::add-line:vertical {
+    background: rgb(25,25,25);
+    height: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+    box-shadow:  -1px -1px #000, 0 1px 0 #444;
+}
+QScrollBar::sub-line:vertical {
+    background: rgb(25,25,25);
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+    box-shadow:  -1px -1px #000, 0 1px 0 #444;
 }

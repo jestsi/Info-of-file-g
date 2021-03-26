@@ -9,19 +9,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>521</width>
+    <width>512</width>
     <height>406</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>521</width>
+    <width>512</width>
     <height>406</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>521</width>
+    <width>512</width>
     <height>406</height>
    </size>
   </property>
@@ -60,13 +60,32 @@
     </size>
    </property>
   </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>305</y>
+     <width>531</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #252525;</string>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>-3</x>
-     <y>10</y>
+     <x>7</x>
+     <y>0</y>
      <width>501</width>
-     <height>381</height>
+     <height>700</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -90,7 +109,7 @@
       <x>10</x>
       <y>0</y>
       <width>491</width>
-      <height>91</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="title">
@@ -125,7 +144,7 @@
       <x>10</x>
       <y>90</y>
       <width>491</width>
-      <height>201</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -301,7 +320,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>295</y>
+      <y>305</y>
       <width>491</width>
       <height>91</height>
      </rect>
