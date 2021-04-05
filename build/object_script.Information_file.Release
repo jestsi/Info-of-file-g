@@ -1,0 +1,12 @@
+release/file_actions_window.o
+release/main.o
+release/about.o
+release/info_of_file.o
+release/warning.o
+release/settings.o
+release/qrc_qrc.o
+release/moc_about.o
+release/moc_file_actions_window.o
+release/moc_info_of_file.o
+release/moc_warning.o
+release/moc_settings.o

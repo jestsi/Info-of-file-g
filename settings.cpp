@@ -35,8 +35,8 @@ void Settings::on_pushButton_2_clicked()
     QFile file(":/resource/styles/style_black_theme.css");
     file.open(QFile::ReadOnly);
     QString test = file.readAll();
-
     qApp->setStyleSheet(test);
+
 
 }
 

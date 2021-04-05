@@ -24,10 +24,20 @@ File_Actions_window::File_Actions_window(QString &path_to_file, QWidget *parent)
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setWidget(ui->widget);
     scrollArea->setMaximumSize(520, 300);
+    scrollArea->setFixedSize(512, 300);
+    scrollArea->setGeometry(scrollArea->geometry().x(), 10, scrollArea->geometry().width(), scrollArea->geometry().height());
     scrollArea->setWindowTitle("File actions");
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setFrameStyle(0);
     scrollArea->show();
+
+    // start value
+    ui->lineEdit->setText(m_file->fileName());
+    ui->dateTimeEdit->setDateTime(m_file->lastModified());
+    ui->dateTimeEdit_2->setDateTime(m_file->lastRead());
+    ui->dateTimeEdit_3->setDateTime(m_file->birthTime());
+    ui->dateTimeEdit_4->setDateTime(m_file->metadataChangeTime());
+    ui->spinBox->setValue(m_file->size());
 
 }
 
@@ -40,26 +50,16 @@ File_Actions_window::~File_Actions_window()
 
 void File_Actions_window::on_pushButton_clicked()
 {
-//    m_file_m->open(QIODevice::ReadWrite);
-//    qDebug() << m_file->path() << Qt::endl;
-//    qDebug() << m_file->filePath();
-//    QFile::rename(m_file->filePath(), (m_file->path() +
-//#ifdef Q_OS_LINUX
-//                  "/"
-//#else
-//                  "/"
-//#endif
-//                  + ui->lineEdit->text()));
-
-
     m_file_m->rename(m_file->path() + '/' + ui->lineEdit->text());
 
     m_file_m->close();
-
-
 }
 
-void File_Actions_window::on_pushButton_2_clicked() { m_file_m->moveToTrash(); }
+void File_Actions_window::on_pushButton_2_clicked()
+{
+    m_file_m->moveToTrash();
+    this->close();
+}
 
 void File_Actions_window::on_pushButton_3_clicked()
 {

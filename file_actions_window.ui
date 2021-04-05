@@ -83,9 +83,9 @@
    <property name="geometry">
     <rect>
      <x>7</x>
-     <y>0</y>
+     <y>10</y>
      <width>501</width>
-     <height>700</height>
+     <height>410</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -341,6 +341,12 @@
      </item>
      <item row="0" column="0">
       <widget class="QSpinBox" name="spinBox">
+       <property name="maximumSize">
+        <size>
+         <width>120</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="frame">
         <bool>false</bool>
        </property>
@@ -351,7 +357,7 @@
         <string/>
        </property>
        <property name="maximum">
-        <number>999999999</number>
+        <number>1999999999</number>
        </property>
       </widget>
      </item>

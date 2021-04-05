@@ -6,16 +6,20 @@
 #include "QPixmap"
 #include "QPainter"
 #include "warning.h"
-#include "about.h"
 #include "QFileDialog"
 #include "QMessageBox"
-#include "file_actions_window.h"
+#include "QMimeType"
+#include "QMimeDatabase"
 
 Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 {
     get_file_name = new QLineEdit(this);
     info = new QLabel(this);
-    settings = new Settings(this);
+    settings = new Settings(nullptr);
+    m_file = nullptr;
+    m_file_m = nullptr;
+    about = nullptr;
+    window = nullptr;
 
     QFont win_font = info->font();
     win_font.setPixelSize(10);
@@ -68,17 +72,12 @@ Info_Of_File::Info_Of_File(QWidget *parent) : QWidget(parent)
 
     get_file_name->setAlignment(Qt::AlignTop);
 
-
     connect(settings, &Settings::fontSize, this, &Info_Of_File::set_font_size);
-
     connect(get_file_info_button, SIGNAL(clicked()), this, SLOT(get_info_of_file()));
-
     connect(about_open, SIGNAL(clicked()), this, SLOT(open_about_window()));
     connect(open_settings_button, SIGNAL(clicked()), this, SLOT(open_setting_slot()));
     connect(open_file_dialog, SIGNAL(clicked()), this, SLOT(open_file_dialog_slot()));
     connect(actions_of_file_button, SIGNAL(clicked()), this, SLOT(open_file_action_slot()));
-
-
 }
 
 Info_Of_File::~Info_Of_File() {
@@ -88,7 +87,8 @@ Info_Of_File::~Info_Of_File() {
     delete grid;
     delete m_file;
     delete m_file_m;
-
+    delete about;
+    delete window;
 }
 
 void Info_Of_File::get_info_of_file() {
@@ -97,6 +97,11 @@ void Info_Of_File::get_info_of_file() {
         const QString file_name = get_file_name->text();
         m_file = new QFileInfo(file_name);
         m_file_m = new QFile(m_file->fileName());
+
+        QMimeDatabase db;
+        QMimeType mime = db.mimeTypeForFile(m_file->absoluteFilePath(), QMimeDatabase::MatchContent);
+
+
         info->setText(
                       "File name is - "               + m_file->baseName() + '\n' +
                       "File birth time is - "         + m_file->birthTime().toString() + '\n' +
@@ -107,6 +112,7 @@ void Info_Of_File::get_info_of_file() {
                       "File last read is - "          + m_file->lastRead().toString() + '\n' +
                       "File absolute directory - "    + m_file->absoluteFilePath() + '\n' +
                       "File directory - "             + m_file->dir().currentPath() + "\n" +
+                      "File type - "                  + mime.filterString() + '\n' +
                       "File meta data change time - " + m_file->metadataChangeTime().toString() + '\n' +
                       "File is junction - "           + ( m_file->isJunction() ? "Yes" : "No") + '\n' +
                       "File is root - "               + ( m_file->isRoot() ? "Yes" : "No") + '\n' +
@@ -127,8 +133,7 @@ void Info_Of_File::keyPressEvent(QKeyEvent *event) {
 }
 
 void Info_Of_File::open_about_window() {
-    About *about = new About();
-
+    about = new About();
     about->show();
 }
 
@@ -158,7 +163,7 @@ void Info_Of_File::open_file_action_slot() {
 
     QString temp = get_file_name->text();
     if (temp.size() > 0) {
-        File_Actions_window *window = new File_Actions_window(temp, nullptr);
+        window = new File_Actions_window(temp, nullptr);
         window->show();
     } else {
         QMessageBox::warning(nullptr, "Warning!", "Select file for edit file!!");

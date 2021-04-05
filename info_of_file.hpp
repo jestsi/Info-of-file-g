@@ -8,6 +8,8 @@
 #include "QLineEdit"
 #include "QLabel"
 #include "settings.h"
+#include "about.h"
+#include "file_actions_window.h"
 
 class Info_Of_File : public QWidget
 {
@@ -35,6 +37,8 @@ private:
     QString size_text_pixels;
     Settings *settings;
     QFile *m_file_m;
+    About *about;
+    File_Actions_window *window;
 protected:
     void keyPressEvent(QKeyEvent *event);
 

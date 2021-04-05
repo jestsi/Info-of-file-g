@@ -1,0 +1,12 @@
+debug/file_actions_window.o
+debug/main.o
+debug/about.o
+debug/info_of_file.o
+debug/warning.o
+debug/settings.o
+debug/qrc_qrc.o
+debug/moc_about.o
+debug/moc_file_actions_window.o
+debug/moc_info_of_file.o
+debug/moc_warning.o
+debug/moc_settings.o

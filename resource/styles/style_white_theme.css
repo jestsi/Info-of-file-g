@@ -3,20 +3,20 @@ QWidget {
 }
 
 QPushButton {
-    display: inline-block;
+
     color: black;
     font-weight: 700;
     width: 75%;
     height: 16%;
     font-size: 11px;
     text-decoration: none;
-    user-select: none;
+
     padding: .5em 2em;
     margin: 5%;
     outline: none;
     border: 2px solid #222121;
     border-radius: 13px;
-    transition: 0.2s;
+
 
 }
 
@@ -24,12 +24,12 @@ QPushButton:hover { background: rgba(20,20,20,.2);}
 
 QLineEdit, QSpinBox {
   width:100%;
-  resize: vertical;
+
   padding:15px;
   border: 2px solid #222121;
   border-radius: 20px;
   background-color: white;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+
   height:18px;
   color: rgb(40, 40, 40);
 }
@@ -37,10 +37,10 @@ QLineEdit, QSpinBox {
 QLabel {
   padding:10px;
   /*font-size: 12px;*/
-  text-shadow: -1px -1px #000, 0 1px 0 #444;
+
   color: rgb(40, 40, 40);
   font-weight: 700;
-  transition: all 1s;
+
 }
 
 /*QLineEdit[text=\"\] {color: red;}*/
@@ -65,7 +65,7 @@ QScrollBar:vertical  {
 background:rgb(230, 230, 230);
 width:10px;
 margin: 0px 0px 0px 0px;
-box-shadow:  -1px -1px #000, 0 1px 0 #444;
+
 
 }
 QScrollBar::handle:vertical {
@@ -73,19 +73,19 @@ border: 1px solid #252525;
 border-radius: 4px;
     background: rgb(25,25,25);
     min-height: 0px;
-    box-shadow:  -1px -1px #000, 0 1px 0 #444;
+
 }
 QScrollBar::add-line:vertical {
     background: rgb(25,25,25);
     height: 0px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
-    box-shadow:  -1px -1px #000, 0 1px 0 #444;
+
 }
 QScrollBar::sub-line:vertical {
     background: rgb(25,25,25);
     height: 0px;
     subcontrol-position: top;
     subcontrol-origin: margin;
-    box-shadow:  -1px -1px #000, 0 1px 0 #444;
+
 }
